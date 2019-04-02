@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { QuestionService } from './services/question-service.service'
+import { Component, OnInit } from '@angular/core';
+import { QuestionService } from './services/question-service.service';
+import { Observable } from 'rxjs';
+import { Question } from './models/question.model';
 
 @Component({
 	selector: 'app-quiz',
@@ -7,11 +9,12 @@ import { QuestionService } from './services/question-service.service'
 	styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnInit {
-	questions: string[]
+	questions: Observable<Question[]>;
+	newContent: Question;
 
 	constructor(private questionService: QuestionService) {}
 
 	ngOnInit(): void {
-		this.questions = this.questionService.getQuestions()
+		this.questions = this.questionService.getQuestions();
 	}
 }

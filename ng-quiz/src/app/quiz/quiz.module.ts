@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { QuizComponent } from './quiz.component'
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { QuizComponent } from './quiz.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
 	declarations: [QuizComponent],
-	imports: [CommonModule],
+	imports: [CommonModule, MaterialModule],
 })
 export class QuizModule {}
