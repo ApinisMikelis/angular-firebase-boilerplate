@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from '@angular/fire';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,18 +12,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 
 @NgModule({
-	declarations: [AppComponent],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		AngularFirestoreModule,
-		AngularFireModule.initializeApp(environment.firebase),
-		QuizModule,
-		MaterialModule,
-		BrowserAnimationsModule,
-	],
-	exports: [MaterialModule],
-	providers: [],
-	bootstrap: [AppComponent],
+     declarations: [AppComponent],
+     imports: [
+          BrowserModule,
+          AppRoutingModule,
+          AngularFirestoreModule,
+          AngularFireModule.initializeApp(environment.firebase),
+          FlexLayoutModule,
+          QuizModule,
+          MaterialModule,
+          BrowserAnimationsModule,
+     ],
+     providers: [],
+     bootstrap: [AppComponent],
 })
 export class AppModule {}
