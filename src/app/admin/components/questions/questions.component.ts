@@ -25,6 +25,7 @@ export class QuestionsComponent {
                .addQuestion({
                     question: this.questionsForm.get('question').value,
                     answer: this.questionsForm.get('answer').value,
+                    user_answer: '',
                     option_a: this.questionsForm.get('option_a').value,
                     option_b: this.questionsForm.get('option_b').value,
                     option_c: this.questionsForm.get('option_c').value,

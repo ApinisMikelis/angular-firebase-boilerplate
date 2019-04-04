@@ -9,9 +9,9 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from 
 export class QuestionService {
      constructor(private afs: AngularFirestore) {}
 
-     getQuestions(): Observable<Question[]> {
+     getQuestions(amount: number): Observable<Question[]> {
           const collection: AngularFirestoreCollection<Question> = this.afs.collection('questions', ref => {
-               return ref.limit(10);
+               return ref.limit(amount);
           });
           return collection.valueChanges();
      }
