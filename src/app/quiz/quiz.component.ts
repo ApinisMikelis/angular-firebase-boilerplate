@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from './services/question-service.service';
-import { Observable } from 'rxjs';
-import { forEach } from 'lodash';
 import { take } from 'rxjs/operators';
 import { Question } from './models/question.model';
 import { QuestionAnswer } from './models/question-answer.model';
-import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
      selector: 'app-quiz',
@@ -21,8 +19,11 @@ export class QuizComponent implements OnInit {
      questions: Question[];
      answers: QuestionAnswer[];
      active: number = 0;
+
      questionCount: number = 10;
-     newContent: Question;
+     score: number = 0;
+     points: number = 10;
+     fine: number = 5;
 
      constructor(private fb: FormBuilder, private questionService: QuestionService) {}
 
@@ -46,7 +47,8 @@ export class QuizComponent implements OnInit {
 
      submit(answer: string): void {
           this.questions[this.active].user_answer = answer;
-          console.log(this.questions[this.active].answer === answer);
+          this.score =
+               this.questions[this.active].answer === answer ? this.score + this.points : this.score - this.fine;
           this.next();
      }
 
