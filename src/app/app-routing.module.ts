@@ -1,23 +1,27 @@
-import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
-import { AppComponent } from './app.component'
-import { QuizComponent } from './quiz/quiz.component'
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
-	{
-		path: '',
-		component: AppComponent,
-		children: [
-			{
-				path: 'quiz',
-				component: QuizComponent,
-			},
-		],
-	},
-]
+     {
+          path: '',
+          component: AppComponent,
+          children: [
+               {
+                    path: 'quiz',
+                    component: QuizComponent,
+               },
+          ],
+     },
+     {
+          path: 'admin',
+          loadChildren: './admin/admin-routing.module#AdminRoutingModule',
+     },
+];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule],
+     imports: [RouterModule.forRoot(routes)],
+     exports: [RouterModule],
 })
 export class AppRoutingModule {}

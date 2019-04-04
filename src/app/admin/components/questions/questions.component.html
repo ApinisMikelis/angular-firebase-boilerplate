@@ -1,0 +1,28 @@
+<h1 class="mat-h1">Questions</h1>
+<form [formGroup]="questionsForm">
+     <mat-form-field>
+          <input matInput placeholder="Jautājums" type="text" autocomplete="off" formControlName="question" />
+     </mat-form-field>
+
+     <mat-form-field>
+          <input matInput placeholder="Atbilde" type="text" autocomplete="off" formControlName="answer" />
+     </mat-form-field>
+
+     <mat-form-field>
+          <input matInput placeholder="A Variants" type="text" autocomplete="off" formControlName="option_a" />
+     </mat-form-field>
+
+     <mat-form-field>
+          <input matInput placeholder="B Variants" type="text" autocomplete="off" formControlName="option_b" />
+     </mat-form-field>
+
+     <mat-form-field>
+          <input matInput placeholder="C Variants" type="text" autocomplete="off" formControlName="option_c" />
+     </mat-form-field>
+
+     <mat-form-field>
+          <input matInput placeholder="D Variants" type="text" autocomplete="off" formControlName="option_d" />
+     </mat-form-field>
+
+     <button (click)="submit()" mat-flat-button color="primary">Saglabāt</button>
+</form>

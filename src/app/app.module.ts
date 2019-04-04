@@ -10,10 +10,12 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
      declarations: [AppComponent],
      imports: [
+          AdminModule,
           BrowserModule,
           AppRoutingModule,
           AngularFirestoreModule,
