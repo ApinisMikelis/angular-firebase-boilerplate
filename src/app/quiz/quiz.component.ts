@@ -22,9 +22,13 @@ export class QuizComponent implements OnInit {
      active: number = 0;
 
      questionCount: number = 10;
+
+     correct: number = 0;
+     wrong: number = 0;
+
      score: number = 0;
      points: number = 10;
-     fine: number = 5;
+     fine: number = 1;
 
      constructor(private fb: FormBuilder, private router: Router, private questionService: QuestionService) {}
 
@@ -52,9 +56,17 @@ export class QuizComponent implements OnInit {
 
      submit(answer: string): void {
           this.questions[this.active].user_answer = answer;
-          this.score =
-               this.questions[this.active].answer === answer ? this.score + this.points : this.score - this.fine;
+          this.questions[this.active].answer === answer ? this.registerCorrectAnswer() : this.registerWrongAnswer();
           this.next();
+     }
+
+     public registerCorrectAnswer(): void {
+          this.score = this.score + this.points;
+          this.correct++;
+     }
+
+     public registerWrongAnswer(): void {
+          this.wrong++;
      }
 
      next(): void {
@@ -62,7 +74,14 @@ export class QuizComponent implements OnInit {
      }
 
      gameOver(): void {
-          console.log('GAME OVER');
-          this.router.navigate(['/results'], { queryParams: { score: this.score } });
+          this.router.navigate(['/results'], {
+               queryParams: {
+                    score: this.score,
+                    question_count: this.questionCount,
+                    correct: this.correct,
+                    wrong: this.wrong,
+                    timestamp: +new Date(),
+               },
+          });
      }
 }

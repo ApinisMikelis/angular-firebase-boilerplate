@@ -1,0 +1,15 @@
+<mat-card fxLayout="column">
+     <div *ngIf="resultsReady">
+          <app-score-board></app-score-board>
+          <button (click)="restart()" mat-flat-button color="primary">Sākums</button>
+     </div>
+
+     <div *ngIf="!resultsReady">
+          <h1>Pieteikt rezultātu</h1>
+          <div fxLayoutAlign="center center" fxLayout="row">
+               <div class="option" fxLayoutGap="30">
+                    <button (click)="submit()" mat-flat-button color="primary">Pieteikt rezultātu</button>
+               </div>
+          </div>
+     </div>
+</mat-card>

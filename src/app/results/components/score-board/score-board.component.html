@@ -1,0 +1,7 @@
+<h1>TOP 10</h1>
+
+<mat-card *ngFor="let result of resultList">
+     <mat-progress-bar mode="determinate" value="{{ result.score }}"></mat-progress-bar>
+     {{ result.score }}
+     {{ result.correct }} / {{ result.question_count }}
+</mat-card>
