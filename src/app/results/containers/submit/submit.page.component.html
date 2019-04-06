@@ -1,5 +1,5 @@
 <mat-card fxLayout="column">
-     <div *ngIf="resultsReady">
+     <div fxFlex="100%" fxLayout="column" *ngIf="resultsReady">
           <app-score-board></app-score-board>
           <button (click)="restart()" mat-flat-button color="primary">Sākums</button>
      </div>

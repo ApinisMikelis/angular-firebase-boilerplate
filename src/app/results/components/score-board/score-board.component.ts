@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class ScoreBoardComponent implements OnInit {
      results$: Observable<Result[]>;
      resultList: Result[];
+     displayedColumns: string[] = ['score', 'progress'];
 
      constructor(private rs: ResultsService) {
           this.results$ = this.rs.getResults(10);

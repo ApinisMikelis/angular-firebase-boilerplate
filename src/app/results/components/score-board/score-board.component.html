@@ -1,7 +1,23 @@
-<h1>TOP 10</h1>
+<div fxLayout="column">
+     <div fxFlex="100%">
+          <h1>TOP 10</h1>
+     </div>
 
-<mat-card *ngFor="let result of resultList">
-     <mat-progress-bar mode="determinate" value="{{ result.score }}"></mat-progress-bar>
-     {{ result.score }}
-     {{ result.correct }} / {{ result.question_count }}
-</mat-card>
+     <table fxFlex="100%" *ngIf="resultList" mat-table [dataSource]="resultList" class="mat-elevation-z8">
+          <ng-container matColumnDef="score">
+               <th mat-header-cell *matHeaderCellDef><span class="emoji">🏑</span></th>
+               <td mat-cell *matCellDef="let element">{{ element.score }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="progress">
+               <th mat-header-cell *matHeaderCellDef></th>
+               <td mat-cell *matCellDef="let element">
+                    {{ element.correct }} / {{ element.question_count }}
+                    <mat-progress-bar mode="determinate" value="{{ element.score }}"></mat-progress-bar>
+               </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+     </table>
+</div>

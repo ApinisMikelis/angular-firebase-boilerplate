@@ -19,7 +19,10 @@ body {
      button {
           font-size: 1.2em;
           padding: 1em;
+          color: #f1f8e9 !important;
+          border-bottom: 4px solid #027c34;
      }
+
      h1 {
           width: 100%;
           margin-bottom: 0;
@@ -27,5 +30,16 @@ body {
           font-size: 3em;
           line-height: 1.2em;
           text-align: center;
+     }
+
+     .mat-card {
+          border-radius: 0;
+          box-shadow: none;
+     }
+
+     .mat-elevation-z8 {
+          box-shadow: none;
+          margin-bottom: 2em;
+          font-size: 2.5em;
      }
 }

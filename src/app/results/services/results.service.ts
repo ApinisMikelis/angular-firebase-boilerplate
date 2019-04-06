@@ -11,7 +11,7 @@ export class ResultsService {
 
      getResults(amount: number): Observable<Result[]> {
           const collection: AngularFirestoreCollection<Result> = this.afs.collection('scoreboard', ref => {
-               return ref.orderBy('score', 'desc');
+               return ref.orderBy('score', 'desc').limit(amount);
           });
           return collection.valueChanges();
      }

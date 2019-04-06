@@ -27,7 +27,6 @@ export class SubmitPageComponent implements OnInit {
      }
 
      public submit(): void {
-          debugger;
           this.rs
                .submitScore(this.result)
                .then(x => (this.resultsReady = true))
