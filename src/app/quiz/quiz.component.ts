@@ -4,6 +4,7 @@ import { take } from 'rxjs/operators';
 import { Question } from './models/question.model';
 import { QuestionAnswer } from './models/question-answer.model';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
      selector: 'app-quiz',
@@ -25,10 +26,14 @@ export class QuizComponent implements OnInit {
      points: number = 10;
      fine: number = 5;
 
-     constructor(private fb: FormBuilder, private questionService: QuestionService) {}
+     constructor(private fb: FormBuilder, private router: Router, private questionService: QuestionService) {}
 
      get question(): Question {
           return this.questions[this.active];
+     }
+
+     get progress(): number {
+          return (this.active / this.questionCount) * 100;
      }
 
      ngOnInit(): void {
@@ -57,6 +62,7 @@ export class QuizComponent implements OnInit {
      }
 
      gameOver(): void {
-          console.log('game over');
+          console.log('GAME OVER');
+          this.router.navigate(['/results'], { queryParams: { score: this.score } });
      }
 }

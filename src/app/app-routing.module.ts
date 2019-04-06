@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
      {
           path: '',
-          component: AppComponent,
-          children: [
-               {
-                    path: 'quiz',
-                    component: QuizComponent,
-               },
-          ],
+          pathMatch: 'full',
+          redirectTo: '/quiz',
+     },
+     {
+          path: 'quiz',
+          loadChildren: './quiz/quiz-routing.module#QuizRoutingModule',
+     },
+     {
+          path: 'results',
+          loadChildren: './results/results-routing.module#ResultsRoutingModule',
      },
      {
           path: 'admin',

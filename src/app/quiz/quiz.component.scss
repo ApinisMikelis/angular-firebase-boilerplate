@@ -1,5 +1,23 @@
 .score {
      font-size: 3em;
      position: absolute;
-     right: 0;
+     top: -0.5em;
+     right: -0.5em;
+     text-align: center;
+     padding: 0.5em;
+     background: #ccc;
+     width: 1em;
+     height: 1em;
+     border-radius: 1em;
+     z-index: 99999;
+}
+
+.answers {
+     .option {
+          padding: 1em;
+
+          button {
+               width: 100%;
+          }
+     }
 }
