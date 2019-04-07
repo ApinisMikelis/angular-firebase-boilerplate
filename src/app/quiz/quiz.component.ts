@@ -12,11 +12,7 @@ import { Router } from '@angular/router';
      styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnInit {
-     quizForm: FormGroup;
-     questionsArray: FormArray;
-
      ready: boolean = false;
-
      questions: Question[];
      answers: QuestionAnswer[];
      active: number = 0;
@@ -30,7 +26,7 @@ export class QuizComponent implements OnInit {
      points: number = 10;
      fine: number = 1;
 
-     constructor(private fb: FormBuilder, private router: Router, private questionService: QuestionService) {}
+     constructor(private router: Router, private questionService: QuestionService) {}
 
      get question(): Question {
           return this.questions[this.active];
@@ -41,11 +37,6 @@ export class QuizComponent implements OnInit {
      }
 
      ngOnInit(): void {
-          this.questionsArray = new FormArray([]);
-          this.quizForm = this.fb.group({
-               questions: this.questionsArray,
-          });
-
           this.questionService
                .getQuestions(this.questionCount)
                .pipe(take(1))

@@ -5,9 +5,12 @@
      </div>
 
      <div *ngIf="!resultsReady">
-          <h1>Pieteikt rezultātu</h1>
+          <h1>Autorizācija</h1>
+          <p>Lai piedalītos Jums ir jāveic autorizācija.</p>
+          <button mat-stroked-button color="primary">Pieslēgties ar Facebook</button>
+          <button mat-stroked-button color="primary">Ievadīt tikai vārdu</button>
           <div fxLayoutAlign="center center" fxLayout="row">
-               <div class="option" fxLayoutGap="30">
+               <div fxLayoutGap="30">
                     <button (click)="submit()" mat-flat-button color="primary">Pieteikt rezultātu</button>
                </div>
           </div>

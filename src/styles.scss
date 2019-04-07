@@ -11,23 +11,30 @@ body {
 
 .app-container {
      width: 90vw;
-     margin: 5vh auto;
+     margin: 3vh auto;
+     text-align: center;
      position: relative;
 
      button {
           font-size: 1.2em;
-          padding: 1em;
-          color: #f1f8e9 !important;
-          border-bottom: 4px solid #027c34;
+          padding: 0.5em 3em;
+          border-bottom-left-radius: 0;
+
+          &.mat-flat-button {
+               border-bottom: 4px solid #027c34;
+               color: #f1f8e9 !important;
+          }
+
+          &.mat-stroked-button {
+               border-bottom: 4px solid #e5ebeb;
+          }
      }
 
      h1 {
           width: 100%;
           margin-bottom: 0;
           font-weight: 400;
-          font-size: 3em;
           line-height: 1.2em;
-          text-align: center;
      }
 
      .mat-card {

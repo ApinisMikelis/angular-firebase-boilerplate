@@ -1,7 +1,18 @@
 .score {
+     position: absolute;
+     top: 0;
+     left: 0;
      font-size: 3.5em;
      text-align: center;
      padding: 0.5em;
+}
+
+.question {
+     height: 48vh;
+
+     span {
+          font-size: 4em;
+     }
 }
 
 .answers {
@@ -10,6 +21,14 @@
 
           button {
                width: 100%;
+          }
+
+          .option_badge {
+               float: left;
+               background: #ffffff;
+               width: 2em;
+               border-radius: 1em;
+               color: #00973e;
           }
      }
 }
