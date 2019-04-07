@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-     { path: '', redirectTo: 'quiz', pathMatch: 'full' },
      {
           path: 'quiz',
           loadChildren: './quiz/quiz-routing.module#QuizRoutingModule',
@@ -14,6 +13,10 @@ const routes: Routes = [
      {
           path: 'admin',
           loadChildren: './admin/admin-routing.module#AdminRoutingModule',
+     },
+     {
+          path: '',
+          loadChildren: './splash/splash-routing.module#SplashRoutingModule',
      },
 ];
 

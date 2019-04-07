@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardPage } from './containers/dashboard/dashboard.page';
+import { StartScreenComponent } from './components/start-screen/start-screen.component';
 
 const routes: Routes = [
      {
-          path: 'admin',
-          component: DashboardPage,
+          path: '',
+          component: StartScreenComponent,
      },
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
      imports: [RouterModule.forChild(routes)],
      exports: [RouterModule],
 })
-export class AdminRoutingModule {}
+export class SplashRoutingModule {}
