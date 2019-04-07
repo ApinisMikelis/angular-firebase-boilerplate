@@ -17,6 +17,7 @@ import { AdminModule } from './admin/admin.module';
      imports: [
           AdminModule,
           BrowserModule,
+          BrowserAnimationsModule,
           AppRoutingModule,
           AngularFirestoreModule,
           AngularFireModule.initializeApp(environment.firebase),

@@ -5,6 +5,9 @@ const routes: Routes = [
      {
           path: 'quiz',
           loadChildren: './quiz/quiz-routing.module#QuizRoutingModule',
+          data: {
+               animation: 'pageAnimation',
+          },
      },
      {
           path: 'results',
