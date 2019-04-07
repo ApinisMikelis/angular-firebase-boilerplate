@@ -1,1 +1,29 @@
-<p>Start screen works!</p>
+<mat-card class="start" fxLayout="column" fxLayoutAlign="center center">
+     <div class="logo" fxLayout="row">
+          <img src="../../assets/img/logo.svg" alt="logo" />
+          <h1>Bite Hokejs</h1>
+     </div>
+     <div class="text">
+          <p>
+               Kas reiz baudījis hokeju klātienē, tas piekritīs – tas ir tā vērts. Bet, kam pirmā spēle Arēnā vēl
+               priekšā, apsveicam – Tu esi īstajā vietā!
+          </p>
+
+          <p>
+               Saviem klientiem BITE dod iespēju iegādāties biļetes uz Latvijas izlases pārbaudes spēlēm izdevīgāk. Jo
+               pilnākas Arēna Rīga tribīnes ar savējiem, jo lielāks #kopāspēks!
+          </p>
+
+          <p>
+               Uz katru Latvijas hokeja izlases pārbaudes spēli Arēnā Rīga būs pieejamas biļetes ar 30% atlaidi – katrai
+               spēlei saņem unikālo atlaižu kodu un iegādājies līdz pat 4 biļetēm par izdevīgāku cenu!
+          </p>
+     </div>
+
+     <div fxFlex="30%" fxLayout="row" fxLayoutGap="30px">
+          <button (click)="start()" mat-flat-button color="primary">Sākt spēli</button>
+          <button disabled (click)="scoreboard()" mat-flat-button color="primary">
+               Apskatīt rezultātus
+          </button>
+     </div>
+</mat-card>
