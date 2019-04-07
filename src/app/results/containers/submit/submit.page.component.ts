@@ -15,12 +15,12 @@ export class SubmitPageComponent implements OnInit {
      constructor(private rs: ResultsService, private route: ActivatedRoute, private router: Router) {}
 
      ngOnInit(): void {
-          this.route.queryParams.subscribe((params: Result) => {
+          this.route.queryParams.subscribe(params => {
                this.result = {
-                    score: params.score,
-                    question_count: params.question_count,
-                    correct: params.correct,
-                    wrong: params.wrong,
+                    score: parseInt(params.score),
+                    question_count: parseInt(params.question_count),
+                    correct: parseInt(params.correct),
+                    wrong: parseInt(params.wrong),
                     timestamp: params.timestamp,
                };
           });
