@@ -16,7 +16,6 @@ export class QuestionsComponent {
                option_a: new FormControl('', Validators.required),
                option_b: new FormControl('', Validators.required),
                option_c: new FormControl('', Validators.required),
-               option_d: new FormControl('', Validators.required),
           });
      }
 
@@ -29,7 +28,6 @@ export class QuestionsComponent {
                     option_a: this.questionsForm.get('option_a').value,
                     option_b: this.questionsForm.get('option_b').value,
                     option_c: this.questionsForm.get('option_c').value,
-                    option_d: this.questionsForm.get('option_d').value,
                })
                .then(x => {
                     console.log('Question added!');

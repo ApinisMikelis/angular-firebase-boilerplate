@@ -3,13 +3,14 @@ import { QuestionService } from './services/question-service.service';
 import { take } from 'rxjs/operators';
 import { Question } from './models/question.model';
 import { QuestionAnswer } from './models/question-answer.model';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
+import { answer, animeLength } from '../animations/quiz-animations';
 
 @Component({
      selector: 'app-quiz',
      templateUrl: './quiz.component.html',
      styleUrls: ['./quiz.component.scss'],
+     animations: [answer],
 })
 export class QuizComponent implements OnInit {
      ready: boolean = false;
@@ -26,7 +27,13 @@ export class QuizComponent implements OnInit {
      points: number = 10;
      fine: number = 1;
 
+     answerState = 'unanswered';
+
      constructor(private router: Router, private questionService: QuestionService) {}
+
+     // get animationState() {
+     //      return this.runAnimation ? 'correct' : 'unanswered';
+     // }
 
      get question(): Question {
           return this.questions[this.active];
@@ -46,18 +53,33 @@ export class QuizComponent implements OnInit {
      }
 
      submit(answer: string): void {
-          this.questions[this.active].user_answer = answer;
-          this.questions[this.active].answer === answer ? this.registerCorrectAnswer() : this.registerWrongAnswer();
-          this.next();
+          this.registerAnswer(answer);
      }
 
-     public registerCorrectAnswer(): void {
+     private playAnimation(): void {
+          this.answerState = 'correct';
+
+          setTimeout(() => {
+               // this.next();
+               // this.answerState = 'unanswered';
+          }, animeLength);
+     }
+
+     private registerCorrectAnswer(): void {
           this.score = this.score + this.points;
           this.correct++;
+          this.playAnimation();
      }
 
-     public registerWrongAnswer(): void {
+     private registerWrongAnswer(): void {
           this.wrong++;
+          this.answerState = 'wrong';
+          this.playAnimation();
+     }
+
+     private registerAnswer(answer: string): void {
+          this.questions[this.active].user_answer = answer;
+          this.questions[this.active].answer === answer ? this.registerCorrectAnswer() : this.registerWrongAnswer();
      }
 
      next(): void {
