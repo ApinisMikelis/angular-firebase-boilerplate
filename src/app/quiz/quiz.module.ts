@@ -6,9 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { QuizRoutingModule } from './quiz-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OptionComponent } from './components/option/option.component';
 
 @NgModule({
-     declarations: [QuizComponent],
+     declarations: [QuizComponent, OptionComponent],
      imports: [
           BrowserAnimationsModule,
           QuizRoutingModule,

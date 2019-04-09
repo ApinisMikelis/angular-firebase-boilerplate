@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AdminModule } from './admin/admin.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
      declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { AdminModule } from './admin/admin.module';
           QuizModule,
           MaterialModule,
           BrowserAnimationsModule,
+          HttpClientModule,
      ],
      providers: [],
      bootstrap: [AppComponent],

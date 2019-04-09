@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { QuestionService } from 'src/app/quiz/services/question-service.service';
 
 @Component({
@@ -9,32 +9,27 @@ import { QuestionService } from 'src/app/quiz/services/question-service.service'
 export class QuestionsComponent {
      questionsForm: FormGroup;
 
+     // TODO FIX FORM
+
      constructor(private fb: FormBuilder, private qs: QuestionService) {
           this.questionsForm = this.fb.group({
                question: new FormControl('', Validators.required),
-               answer: new FormControl('', Validators.required),
-               option_a: new FormControl('', Validators.required),
-               option_b: new FormControl('', Validators.required),
-               option_c: new FormControl('', Validators.required),
+               options: new FormArray([]),
           });
      }
 
      submit(): void {
-          this.qs
-               .addQuestion({
-                    question: this.questionsForm.get('question').value,
-                    answer: this.questionsForm.get('answer').value,
-                    user_answer: '',
-                    option_a: this.questionsForm.get('option_a').value,
-                    option_b: this.questionsForm.get('option_b').value,
-                    option_c: this.questionsForm.get('option_c').value,
-               })
-               .then(x => {
-                    console.log('Question added!');
-                    this.questionsForm.reset();
-               })
-               .catch(err => {
-                    console.log(err);
-               });
+          // this.qs
+          //      .addQuestion({
+          //           question: this.questionsForm.get('question').value,
+          //           options: this.questionsForm.get('options').value,
+          //      })
+          //      .then(x => {
+          //           console.log('Question added!');
+          //           this.questionsForm.reset();
+          //      })
+          //      .catch(err => {
+          //           console.log(err);
+          //      });
      }
 }

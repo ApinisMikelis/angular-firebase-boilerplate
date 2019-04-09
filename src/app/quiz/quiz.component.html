@@ -1,33 +1,17 @@
 <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
-<mat-card
-     [@answerState]="answerState"
-     [ngClass]="answerState"
-     *ngIf="questions"
-     fxLayout="column"
-     fxLayoutAlign="center stretch"
-     fxFlexFill
->
+<mat-card [@answerState]="answerState" *ngIf="questions" fxLayout="column" fxLayoutAlign="center stretch" fxFlexFill>
      <div class="question" fxLayout="row" fxLayoutAlign="center center">
           <span>{{ question.question }}</span>
      </div>
 
      <div class="answers" fxLayout="column" fxLayout.gt-sm="column" fxLayoutGap="15" fxFlex="100%">
           <div fxLayout="column" fxLayout.gt-sm="row">
-               <div class="option option-a" fxFlex="50%" fxLayoutGap="15">
-                    <button (click)="submit('a')" mat-flat-button color="primary">
-                         <span class="option_badge">A</span>{{ question.option_a }}
-                    </button>
-               </div>
-               <div class="option option-b" fxFlex="50%" fxLayoutGap="15">
-                    <button (click)="submit('b')" mat-flat-button color="primary">
-                         <span class="option_badge">B</span>{{ question.option_b }}
-                    </button>
-               </div>
-               <div class="option option-c" fxFlex="50%" fxLayoutGap="15">
-                    <button (click)="submit('c')" mat-flat-button color="primary">
-                         <span class="option_badge">C</span>{{ question.option_c }}
-                    </button>
-               </div>
+               <app-option
+                    fxFlex="100%"
+                    (answer)="submit($event)"
+                    *ngFor="let option of question.options"
+                    [option]="option"
+               ></app-option>
           </div>
      </div>
      <div class="score">🏑 {{ score }}</div>

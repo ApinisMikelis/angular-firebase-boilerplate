@@ -31,10 +31,6 @@ export class QuizComponent implements OnInit {
 
      constructor(private router: Router, private questionService: QuestionService) {}
 
-     // get animationState() {
-     //      return this.runAnimation ? 'correct' : 'unanswered';
-     // }
-
      get question(): Question {
           return this.questions[this.active];
      }
@@ -52,15 +48,15 @@ export class QuizComponent implements OnInit {
                });
      }
 
-     submit(answer: string): void {
-          this.registerAnswer(answer);
+     submit(answer: boolean): void {
+          answer === true ? this.registerCorrectAnswer() : this.registerWrongAnswer();
      }
 
      private playAnimation(): void {
           this.answerState = 'correct';
 
           setTimeout(() => {
-               // this.next();
+               this.next();
                // this.answerState = 'unanswered';
           }, animeLength);
      }
@@ -75,11 +71,6 @@ export class QuizComponent implements OnInit {
           this.wrong++;
           this.answerState = 'wrong';
           this.playAnimation();
-     }
-
-     private registerAnswer(answer: string): void {
-          this.questions[this.active].user_answer = answer;
-          this.questions[this.active].answer === answer ? this.registerCorrectAnswer() : this.registerWrongAnswer();
      }
 
      next(): void {

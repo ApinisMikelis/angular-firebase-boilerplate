@@ -1,0 +1,11 @@
+<div [ngClass]="option.correct ? 'correct' : 'wrong'" class="option option-a">
+     <button
+          [ngClass]="answered ? 'answered' : 'unanswered'"
+          (click)="submit(option.correct)"
+          mat-flat-button
+          color="primary"
+     >
+          <span class="option_badge">{{ option.id }}</span
+          >{{ option.text }}
+     </button>
+</div>

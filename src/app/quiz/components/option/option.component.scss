@@ -1,0 +1,34 @@
+.option {
+     button {
+          width: 100%;
+     }
+
+     &.correct {
+          .unanswered {
+          }
+
+          .answered {
+               transition: box-shadow 0.3s ease-in;
+               box-shadow: 0 0 4em 0 #00973e;
+          }
+     }
+
+     &.wrong {
+          .unanswered {
+          }
+
+          .answered {
+               transition: box-shadow 0.3s ease-in;
+               box-shadow: 0 0 4em 0 #f03800;
+          }
+     }
+     padding: 1em;
+
+     .option_badge {
+          float: left;
+          background: #ffffff;
+          width: 2em;
+          border-radius: 1em;
+          color: #00973e;
+     }
+}
