@@ -14,6 +14,6 @@ export class StartScreenComponent {
      }
 
      public scoreboard(): void {
-          this.router.navigate(['./results']);
+          this.router.navigate(['./results/scoreboard']);
      }
 }

@@ -1,17 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Result } from '../../models/result.model';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ResultsService } from '../../services/results.service';
 
 @Component({
      selector: 'app-results-page',
      templateUrl: 'results.page.component.html',
+     styleUrls: ['./results.page.component.scss'],
 })
 export class ResultsPageComponent implements OnInit {
      score: number;
      result: Result;
 
-     constructor(private router: Router, private route: ActivatedRoute) {
+     nameForm: FormGroup;
+
+     constructor(
+          private fb: FormBuilder,
+          private rs: ResultsService,
+          private router: Router,
+          private route: ActivatedRoute
+     ) {
+          this.nameForm = this.fb.group({
+               name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(23)]),
+          });
+
           this.result = {
+               player: undefined,
                score: undefined,
                question_count: undefined,
                correct: undefined,
@@ -23,10 +38,11 @@ export class ResultsPageComponent implements OnInit {
      ngOnInit(): void {
           this.route.queryParams.subscribe(params => {
                this.score = params.score;
-               this.result.score = params.score;
-               this.result.question_count = params.question_count;
-               this.result.correct = params.correct;
-               this.result.wrong = params.wrong;
+               this.result.player = '';
+               this.result.score = parseInt(params.score);
+               this.result.question_count = parseInt(params.question_count);
+               this.result.correct = parseInt(params.correct);
+               this.result.wrong = parseInt(params.wrong);
                this.result.timestamp = params.timestamp;
           });
      }
@@ -36,6 +52,14 @@ export class ResultsPageComponent implements OnInit {
      }
 
      public submit(): void {
-          this.router.navigate(['results/submit'], { queryParams: this.result });
+          this.result.player = this.nameForm.get('name').value;
+          this.rs
+               .submitScore(this.result)
+               .then(x => {
+                    this.router.navigate(['/results/scoreboard']);
+               })
+               .catch(err => {
+                    console.log(err);
+               });
      }
 }

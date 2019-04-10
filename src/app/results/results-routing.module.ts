@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ResultsPageComponent } from './containers/results/results.page.component';
-import { SubmitPageComponent } from './containers/submit/submit.page.component';
+import { ScoreBoardComponent } from './components/score-board/score-board.component';
 
 const routes: Routes = [
      {
@@ -9,8 +9,8 @@ const routes: Routes = [
           component: ResultsPageComponent,
      },
      {
-          path: 'submit',
-          component: SubmitPageComponent,
+          path: 'scoreboard',
+          component: ScoreBoardComponent,
      },
 ];
 
