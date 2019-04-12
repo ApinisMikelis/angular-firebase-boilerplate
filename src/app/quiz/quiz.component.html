@@ -9,8 +9,9 @@
                <app-option
                     fxFlex="100%"
                     (answer)="submit($event)"
-                    *ngFor="let option of question.options"
+                    *ngFor="let option of question.options; let index = i"
                     [option]="option"
+                    [index]="optionIds[i]"
                ></app-option>
           </div>
      </div>
