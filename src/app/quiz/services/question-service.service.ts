@@ -41,7 +41,7 @@ export class QuestionService {
           });
      }
 
-     getQuestions(amount: number): Observable<Question[]> {
+     getQuestions(amount: number = 100): Observable<Question[]> {
           const collection: AngularFirestoreCollection<Question> = this.afs.collection('questions', ref => {
                return ref.limit(amount);
           });

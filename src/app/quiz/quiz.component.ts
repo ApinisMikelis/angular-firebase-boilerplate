@@ -6,6 +6,7 @@ import { QuestionAnswer } from './models/question-answer.model';
 import { Router } from '@angular/router';
 import { answer, animeLength } from '../animations/quiz-animations';
 import { UtilityService } from '../core/services/utility.service';
+import { sampleSize } from 'lodash';
 
 @Component({
      selector: 'app-quiz',
@@ -48,10 +49,11 @@ export class QuizComponent implements OnInit {
 
      ngOnInit(): void {
           this.questionService
-               .getQuestions(this.questionCount)
+               .getQuestions()
                .pipe(
                     take(1),
-                    map((x: Question[]) => this.utilityService.shuffle(x))
+                    map((x: Question[]) => this.utilityService.shuffle(x)),
+                    map((x: Question[]) => sampleSize(x, this.questionCount))
                )
                .subscribe((questions: Question[]) => {
                     this.questions = questions;

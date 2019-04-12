@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
      providedIn: 'root',
 })
 export class UtilityService {
-     public shuffle(list: any[]) {
+     public shuffle(list: any[]): any[] {
           let currentIndex = list.length;
 
           while (0 !== currentIndex) {
