@@ -1,5 +1,12 @@
+h1 {
+     margin: 0.2em 0;
+}
 .mat-cell {
      padding: 0 0.5em;
+}
+
+.mat-header-row {
+     display: none;
 }
 
 .mat-header-cell {

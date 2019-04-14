@@ -1,20 +1,19 @@
 .score {
-     position: absolute;
-     top: 0;
-     left: 0;
-     font-size: 3.5em;
+     font-size: 4em;
      text-align: center;
      padding: 0.5em;
 }
 
 .question {
-     height: 48vh;
+     height: 60vh;
 
      span {
-          font-size: 4em;
+          font-size: 5em;
      }
 }
 
-.mat-card {
-     border: 10px solid #ffffff;
+.answers {
+     width: 100%;
+     position: absolute;
+     bottom: 0;
 }

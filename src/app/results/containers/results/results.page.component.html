@@ -1,27 +1,29 @@
-<mat-card fxLayout="column">
-     <h1>Jūsu rezultāts</h1>
-     <app-score [score]="score"></app-score>
+<div fxLayoutAlign="center center">
+     <div class="inner-container">
+          <h1>Jūsu rezultāts</h1>
+          <app-score [score]="score"></app-score>
 
-     <div [formGroup]="nameForm">
-          <mat-form-field>
-               <input
-                    matInput
-                    formControlName="name"
-                    autocomplete="off"
-                    type="text"
-                    placeholder="Lūdzu ievadiet savu vārdu"
-               />
-          </mat-form-field>
-     </div>
+          <div [formGroup]="nameForm">
+               <mat-form-field>
+                    <input
+                         matInput
+                         formControlName="name"
+                         autocomplete="off"
+                         type="text"
+                         placeholder="Lūdzu ievadiet savu vārdu"
+                    />
+               </mat-form-field>
+          </div>
 
-     <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="30px">
-          <div class="option">
-               <button (click)="restart()" mat-flat-button color="primary">Sākt jaunu spēli</button>
-          </div>
-          <div class="option">
-               <button [disabled]="nameForm.invalid" (click)="submit()" mat-flat-button color="primary">
-                    Pieteikt rezultātu
-               </button>
+          <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="30px">
+               <div class="option">
+                    <button (click)="restart()" mat-flat-button color="primary">Sākt jaunu spēli</button>
+               </div>
+               <div class="option">
+                    <button [disabled]="nameForm.invalid" (click)="submit()" mat-flat-button color="primary">
+                         Pieteikt rezultātu
+                    </button>
+               </div>
           </div>
      </div>
-</mat-card>
+</div>
