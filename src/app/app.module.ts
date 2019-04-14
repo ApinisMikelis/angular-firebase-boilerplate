@@ -12,13 +12,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AdminModule } from './admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
      declarations: [AppComponent],
      imports: [
           AdminModule,
+          AngularFireAuthModule,
           BrowserModule,
           BrowserAnimationsModule,
+          CoreModule,
           AppRoutingModule,
           AngularFirestoreModule,
           AngularFireModule.initializeApp(environment.firebase),

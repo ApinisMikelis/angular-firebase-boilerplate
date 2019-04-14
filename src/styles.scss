@@ -43,6 +43,10 @@ body {
      .mat-card {
           border-radius: 0;
           box-shadow: none;
+
+          .mat-card-header-text {
+               width: 100%;
+          }
      }
 
      .mat-elevation-z8 {

@@ -4,6 +4,7 @@ import { Question } from '../models/question.model';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from 'angularfire2/firestore';
 import { HttpClient } from '@angular/common/http';
 import { forEach } from 'lodash';
+import { UtilityService } from 'src/app/core/services/utility.service';
 
 interface DummyQuestion {
      category: string;
@@ -23,26 +24,24 @@ interface Response {
      providedIn: 'root',
 })
 export class QuestionService {
-     constructor(private http: HttpClient, private afs: AngularFirestore) {}
+     constructor(private http: HttpClient, private afs: AngularFirestore, private utilityService: UtilityService) {}
 
      getDummy(): any {
-          this.http.get('https://opentdb.com/api.php?amount=10&category=21&type=multiple').subscribe((x: Response) => {
+          this.http.get('https://opentdb.com/api.php?amount=100&category=21&type=multiple').subscribe((x: Response) => {
                forEach(x.results, (result: DummyQuestion) => {
                     this.addQuestion({
                          question: result.question,
-                         options: [
-                              { id: 'a', text: result.incorrect_answers[0], correct: false },
-                              { id: 'b', text: result.correct_answer, correct: true },
-                              { id: 'c', text: result.incorrect_answers[1], correct: false },
-                         ],
+                         options: this.utilityService.shuffle([
+                              { text: result.incorrect_answers[0], correct: false },
+                              { text: result.correct_answer, correct: true },
+                              { text: result.incorrect_answers[1], correct: false },
+                         ]),
                     });
                });
-
-               this;
           });
      }
 
-     getQuestions(amount: number): Observable<Question[]> {
+     getQuestions(amount: number = 100): Observable<Question[]> {
           const collection: AngularFirestoreCollection<Question> = this.afs.collection('questions', ref => {
                return ref.limit(amount);
           });

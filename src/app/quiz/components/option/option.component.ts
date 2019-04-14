@@ -8,6 +8,7 @@ import { Option } from '../../models/option.model';
 })
 export class OptionComponent {
      @Input() option: Option;
+     @Input() index: string;
      @Output() answer = new EventEmitter<boolean>();
      answered: boolean = false;
 

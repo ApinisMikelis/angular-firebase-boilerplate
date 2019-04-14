@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginPageComponent } from './core/containers/login/login.page';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
      {
@@ -16,6 +18,10 @@ const routes: Routes = [
      {
           path: 'admin',
           loadChildren: './admin/admin-routing.module#AdminRoutingModule',
+     },
+     {
+          path: 'login',
+          component: LoginPageComponent,
      },
      {
           path: '',

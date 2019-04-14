@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from './services/question-service.service';
-import { take } from 'rxjs/operators';
+import { take, map } from 'rxjs/operators';
 import { Question } from './models/question.model';
 import { QuestionAnswer } from './models/question-answer.model';
 import { Router } from '@angular/router';
 import { answer, animeLength } from '../animations/quiz-animations';
+import { UtilityService } from '../core/services/utility.service';
+import { sampleSize } from 'lodash';
 
 @Component({
      selector: 'app-quiz',
@@ -27,9 +29,15 @@ export class QuizComponent implements OnInit {
      points: number = 10;
      fine: number = 1;
 
+     optionIds: string[] = ['a', 'b', 'c', 'd'];
+
      answerState = 'unanswered';
 
-     constructor(private router: Router, private questionService: QuestionService) {}
+     constructor(
+          private router: Router,
+          private utilityService: UtilityService,
+          private questionService: QuestionService
+     ) {}
 
      get question(): Question {
           return this.questions[this.active];
@@ -41,8 +49,12 @@ export class QuizComponent implements OnInit {
 
      ngOnInit(): void {
           this.questionService
-               .getQuestions(this.questionCount)
-               .pipe(take(1))
+               .getQuestions()
+               .pipe(
+                    take(1),
+                    map((x: Question[]) => this.utilityService.shuffle(x)),
+                    map((x: Question[]) => sampleSize(x, this.questionCount))
+               )
                .subscribe((questions: Question[]) => {
                     this.questions = questions;
                });
