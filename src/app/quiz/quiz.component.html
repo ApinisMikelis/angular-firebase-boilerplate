@@ -6,6 +6,7 @@
      </div>
 
      <div class="answers" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="15" fxFlex="100%">
+          <div class="option-disabler" *ngIf="freezeGame"></div>
           <app-option
                fxFlex="33%"
                (answer)="submit($event)"

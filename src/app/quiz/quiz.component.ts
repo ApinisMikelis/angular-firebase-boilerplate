@@ -31,6 +31,8 @@ export class QuizComponent implements OnInit {
 
      optionIds: string[] = ['a', 'b', 'c', 'd'];
 
+     freezeGame: boolean = false;
+
      answerState = 'unanswered';
 
      constructor(
@@ -60,7 +62,8 @@ export class QuizComponent implements OnInit {
                });
      }
 
-     submit(answer: boolean): void {
+     public submit(answer: boolean): void {
+          this.freezeGame = true;
           answer === true ? this.registerCorrectAnswer() : this.registerWrongAnswer();
      }
 
@@ -69,7 +72,6 @@ export class QuizComponent implements OnInit {
 
           setTimeout(() => {
                this.next();
-               // this.answerState = 'unanswered';
           }, animeLength);
      }
 
@@ -87,6 +89,7 @@ export class QuizComponent implements OnInit {
 
      next(): void {
           this.questions[this.active + 1] ? this.active++ : this.gameOver();
+          this.freezeGame = false;
      }
 
      gameOver(): void {
