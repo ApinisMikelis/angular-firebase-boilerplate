@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionService } from './services/question-service.service';
+import { QuestionService } from '../../services/question-service.service';
 import { take, map } from 'rxjs/operators';
-import { Question } from './models/question.model';
-import { QuestionAnswer } from './models/question-answer.model';
+import { Question } from '../../models/question.model';
+import { QuestionAnswer } from '../../models/question-answer.model';
 import { Router } from '@angular/router';
-import { answer, animeLength } from '../animations/quiz-animations';
-import { UtilityService } from '../core/services/utility.service';
+import { answer, animeLength } from '../../../animations/quiz-animations';
+import { UtilityService } from '../../../core/services/utility.service';
 import { sampleSize } from 'lodash';
 
 @Component({

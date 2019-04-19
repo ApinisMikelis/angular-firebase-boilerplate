@@ -1,3 +1,5 @@
+@import '../../../core/sass/breakpoints.scss';
+
 .final-score {
      h2 {
           text-align: center;
@@ -5,4 +7,13 @@
           font-size: 10em;
           line-height: 0;
      }
+}
+
+// lt-lg
+@media (max-width: $bp-md-max) {
+
+     h2 {
+          font-size: 8em;
+     }
+
 }

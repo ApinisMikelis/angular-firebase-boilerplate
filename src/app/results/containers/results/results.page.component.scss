@@ -1,6 +1,7 @@
+@import '../../../core/sass/breakpoints.scss';
+
 .mat-form-field {
      width: 60%;
-     margin: 0 auto;
      text-align: center;
      font-size: 3em;
 }
@@ -8,4 +9,15 @@
 .inner-container {
      width: 100%;
      margin: 7em;
+}
+
+// lt-lg
+@media (max-width: $bp-md-max) {
+     .mat-form-field {
+          width: 70%;
+     }
+
+     .inner-container {
+          margin: 0;
+     }
 }

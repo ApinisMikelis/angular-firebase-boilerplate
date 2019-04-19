@@ -1,3 +1,5 @@
+@import './app/core/sass//breakpoints.scss';
+
 body {
      margin: 0;
      font-family: Roboto, 'Helvetica Neue', sans-serif;
@@ -17,14 +19,16 @@ body {
           font-size: 2em;
           padding: 0.5em 4em;
           border-bottom-left-radius: 0;
+          border-bottom-width: 7px;
+          border-bottom-style: solid;
+          border-bottom-color: #027c34;
 
-          &.mat-flat-button {
-               border-bottom: 7px solid #027c34;
-               color: #f1f8e9 !important;
+          &.mat-flat-button.mat-primary {
+               color: #f1f8e9;
           }
 
           &.mat-stroked-button {
-               border-bottom: 7px solid #e5ebeb;
+               border-bottom-color: #e5ebeb;
           }
      }
 
@@ -64,5 +68,36 @@ body {
           line-height: 1.5em;
           font-size: 1.3em;
           font-weight: 300;
+     }
+}
+
+// gt-sm
+@media (min-width: $bp-md-min) {
+}
+
+// lt-md
+@media (max-width: $bp-sm-max) {
+     body {
+          background: red;
+     }
+}
+
+// lt-lg
+@media (max-width: $bp-md-max) {
+     .app-container {
+          button {
+               font-size: 1.5em;
+               padding: 0.3em 2em;
+               border-bottom-width: 4px;
+          }
+
+          h1 {
+               font-size: 4em;
+          }
+
+          .mat-elevation-z8 {
+               margin-bottom: 2em;
+               font-size: 1em;
+          }
      }
 }

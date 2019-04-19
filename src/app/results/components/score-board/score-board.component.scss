@@ -1,6 +1,9 @@
+@import '../../../core/sass/breakpoints.scss';
+
 h1 {
      margin: 0.2em 0;
 }
+
 .mat-cell {
      padding: 0 0.5em;
 }
@@ -58,4 +61,12 @@ tr.mat-row {
 
 .emoji {
      font-size: 1em;
+}
+
+// lt-lg
+@media (max-width: $bp-md-max) {
+     h1 {
+          margin: 0.5em 0;
+          font-size: 2em;
+     }
 }
