@@ -1,12 +1,11 @@
 .option {
      button {
           width: 100%;
+          padding: 1em 2em;
+          font-size: 2em;
      }
 
      &.correct {
-          .unanswered {
-          }
-
           .answered {
                transition: box-shadow 0.3s ease-in;
                box-shadow: 0 0 4em 0 #00973e;
@@ -14,21 +13,17 @@
      }
 
      &.wrong {
-          .unanswered {
-          }
-
           .answered {
                transition: box-shadow 0.3s ease-in;
                box-shadow: 0 0 4em 0 #f03800;
           }
      }
      padding: 1em;
+}
 
-     .option_badge {
-          float: left;
-          background: #ffffff;
-          width: 2em;
-          border-radius: 1em;
-          color: #00973e;
-     }
+.option_badge {
+     font-size: 5em;
+     font-weight: 500;
+     text-transform: uppercase;
+     color: #00973e;
 }

@@ -11,8 +11,7 @@ export class OptionComponent {
      @Input() index: string;
      @Output() answer = new EventEmitter<boolean>();
      answered: boolean = false;
-
-     constructor() {}
+     option_letters: string[] = ['a', 'b', 'c'];
 
      submit(correct: boolean): void {
           this.answer.emit(correct);

@@ -1,11 +1,12 @@
-<div [ngClass]="option.correct ? 'correct' : 'wrong'" class="option option-a">
+<div [ngClass]="option.correct ? 'correct' : 'wrong'" class="option">
+     <app-goal [hitGoal]="answered"></app-goal>
+     <span class="option_badge">{{ option_letters[index] }}</span>
      <button
           [ngClass]="answered ? 'answered' : 'unanswered'"
           (click)="submit(option.correct)"
           mat-flat-button
           color="primary"
      >
-          <span class="option_badge">{{ index }}</span
-          >{{ option.text }}
+          {{ option.text }}
      </button>
 </div>

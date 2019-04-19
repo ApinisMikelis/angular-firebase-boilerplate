@@ -1,20 +1,33 @@
 .score {
-     position: absolute;
-     top: 0;
-     left: 0;
-     font-size: 3.5em;
+     font-size: 4em;
      text-align: center;
      padding: 0.5em;
 }
 
 .question {
-     height: 48vh;
+     height: 25vh;
+     color: #455556;
 
      span {
-          font-size: 4em;
+          font-size: 5em;
      }
 }
 
-.mat-card {
-     border: 10px solid #ffffff;
+.answers {
+     margin: 0;
+     padding: 0;
+     border: none;
+     width: 100%;
+     position: absolute;
+     bottom: 0;
+
+     .option-disabler {
+          opacity: 0;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 99999;
+     }
 }

@@ -1,0 +1,28 @@
+.goal-container {
+     position: relative;
+
+     img.goal {
+          width: 80%;
+     }
+
+     img.puck {
+          position: absolute;
+          left: 45%;
+          width: 10%;
+          bottom: 0;
+          z-index: 99999;
+          animation: hitGoal 0.3s ease-in 0s;
+     }
+}
+
+@keyframes hitGoal {
+     0% {
+          bottom: -150%;
+          transform: scale(3);
+     }
+
+     100% {
+          bottom: 0%;
+          transform: scale(1);
+     }
+}
