@@ -10,7 +10,7 @@
           position: absolute;
           left: 45%;
           width: 5%;
-          bottom: 0;
+          bottom: 5%;
           z-index: 99999;
           animation: hitGoal 0.3s ease-in 0s;
 
@@ -35,7 +35,7 @@
      }
 
      100% {
-          bottom: 0%;
+          bottom: 5%;
           transform: scale(1);
      }
 }
