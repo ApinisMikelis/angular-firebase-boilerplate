@@ -3,22 +3,23 @@
 
      img.goal {
           width: 50%;
+          max-height: 35vh;
      }
 
      img.puck {
           position: absolute;
           left: 45%;
-          width: 10%;
+          width: 5%;
           bottom: 0;
           z-index: 99999;
           animation: hitGoal 0.3s ease-in 0s;
 
           &.a {
-               left: 33%;
+               left: 35%;
           }
 
           &.b {
-               left: 45%;
+               left: 47.5%;
           }
 
           &.c {
