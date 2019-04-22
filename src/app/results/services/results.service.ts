@@ -1,29 +1,31 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference, AngularFirestoreCollection, DocumentData } from 'angularfire2/firestore';
 import { Result } from '../models/result.model';
 import { Observable } from 'rxjs';
-import { ConfigService } from 'src/app/core/services/config.service';
+import { AppDbConstants } from 'src/app/core/constants/app-db.constants';
+import { AppMessagesConstants } from 'src/app/core/constants/app-messages.constants';
 
 @Injectable({
      providedIn: 'root',
 })
 export class ResultsService {
-     private currentGame: string;
-
-     constructor(private afs: AngularFirestore, private cs: ConfigService) {}
+     constructor(private afs: AngularFirestore) {}
 
      public getResults(amount: number, gameRef: string): Observable<Result[]> {
-          const collection: AngularFirestoreCollection<Result> = this.afs.collection('scoreboard', ref => {
-               return ref
-                    .where('gameRef', '==', gameRef)
-                    .orderBy('score', 'desc')
-                    .limit(amount);
-          });
+          const collection: AngularFirestoreCollection<Result> = this.afs.collection(
+               AppDbConstants.SCORE_COLLECTION,
+               ref => {
+                    return ref
+                         .where('gameRef', '==', gameRef)
+                         .orderBy('score', 'desc')
+                         .limit(amount);
+               }
+          );
           return collection.valueChanges();
      }
 
      public submitScore(result: Result): Promise<DocumentReference> {
-          const gamesCollection: AngularFirestoreCollection = this.afs.collection('games');
+          const gamesCollection: AngularFirestoreCollection = this.afs.collection(AppDbConstants.GAME_COLLECTION);
           let newGameData: DocumentData = {};
 
           const gameRef: DocumentReference = gamesCollection.doc(result.gameRef).ref;
@@ -43,14 +45,14 @@ export class ResultsService {
                          };
                          gamesCollection.doc(result.gameRef).ref.set(newGameData);
                     } else {
-                         console.log('No such document!');
+                         console.log(AppMessagesConstants.NO_SUCH_DOCUMENT);
                     }
                })
                .catch(error => {
-                    console.log('Error getting document:', error);
+                    console.log(AppMessagesConstants.ERROR_GETTING_DOCUMENT, error);
                });
 
-          const collection: AngularFirestoreCollection = this.afs.collection('scoreboard');
+          const collection: AngularFirestoreCollection = this.afs.collection(AppDbConstants.SCORE_COLLECTION);
           return collection.add(result);
      }
 }

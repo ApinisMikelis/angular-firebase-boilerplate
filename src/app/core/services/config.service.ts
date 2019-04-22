@@ -3,15 +3,10 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from 
 import { GameModel } from '../models/game.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { forEach } from 'lodash';
+import { AppDbConstants } from '../constants/app-db.constants';
+import { AppMessagesConstants } from '../constants/app-messages.constants';
+import { ConfigurationModel } from '../models/configuration-model';
 
-export interface ConfigurationModel {
-     lifetime: LifetimeConfigModel;
-}
-
-export interface LifetimeConfigModel {
-     currentGame: string;
-}
 
 @Injectable({
      providedIn: 'root',
@@ -20,8 +15,10 @@ export class ConfigService {
      constructor(private afs: AngularFirestore) {}
 
      public getLifeTimeSettings(): Promise<string> {
-          const collection: AngularFirestoreCollection<ConfigurationModel> = this.afs.collection('configuration');
-          const lifetimeConfig: DocumentReference = collection.doc('lifetime').ref;
+          const collection: AngularFirestoreCollection<ConfigurationModel> = this.afs.collection(
+               AppDbConstants.CONFIGURATION_COLLECTION
+          );
+          const lifetimeConfig: DocumentReference = collection.doc(AppDbConstants.LIFETIME_CONFIG).ref;
 
           return lifetimeConfig
                .get()
@@ -34,14 +31,17 @@ export class ConfigService {
                     }
                })
                .catch(error => {
-                    console.log('Error getting document:', error);
+                    console.log(AppMessagesConstants.ERROR_GETTING_DOCUMENT, error);
                });
      }
 
      public getGameList(): Observable<GameModel[]> {
-          const collection: AngularFirestoreCollection<GameModel> = this.afs.collection('games', ref => {
-               return ref.orderBy('startDate', 'desc');
-          });
+          const collection: AngularFirestoreCollection<GameModel> = this.afs.collection(
+               AppDbConstants.GAME_COLLECTION,
+               ref => {
+                    return ref.orderBy('startDate', 'desc');
+               }
+          );
 
           return collection.snapshotChanges().pipe(
                map(games => {
@@ -63,7 +63,9 @@ export class ConfigService {
      }
 
      public setCurrentGame(gameId: string): void {
-          const gamesCollection: AngularFirestoreCollection<ConfigurationModel> = this.afs.collection('games');
+          const gamesCollection: AngularFirestoreCollection<ConfigurationModel> = this.afs.collection(
+               AppDbConstants.GAME_COLLECTION
+          );
           const gameRef: DocumentReference = gamesCollection.doc(gameId).ref;
 
           gameRef
@@ -74,15 +76,17 @@ export class ConfigService {
                               state: 'active',
                          });
                     } else {
-                         console.log('No such document!');
+                         console.log(AppMessagesConstants.NO_SUCH_DOCUMENT);
                     }
                })
                .catch(error => {
-                    console.log('Error getting document:', error);
+                    console.log(AppMessagesConstants.ERROR_GETTING_DOCUMENT, error);
                });
 
-          const collection: AngularFirestoreCollection<ConfigurationModel> = this.afs.collection('configuration');
-          const configRef: DocumentReference = collection.doc('lifetime').ref;
+          const collection: AngularFirestoreCollection<ConfigurationModel> = this.afs.collection(
+               AppDbConstants.CONFIGURATION_COLLECTION
+          );
+          const configRef: DocumentReference = collection.doc(AppDbConstants.LIFETIME_CONFIG).ref;
 
           configRef
                .get()
@@ -90,16 +94,18 @@ export class ConfigService {
                     if (doc.exists) {
                          configRef.set({ currentGame: gameRef });
                     } else {
-                         console.log('No such document!');
+                         console.log(AppMessagesConstants.NO_SUCH_DOCUMENT);
                     }
                })
                .catch(error => {
-                    console.log('Error getting document:', error);
+                    console.log(AppMessagesConstants.ERROR_GETTING_DOCUMENT, error);
                });
      }
 
      public stopGame(gameId: string): void {
-          const gamesCollection: AngularFirestoreCollection<ConfigurationModel> = this.afs.collection('games');
+          const gamesCollection: AngularFirestoreCollection<ConfigurationModel> = this.afs.collection(
+               AppDbConstants.GAME_COLLECTION
+          );
           const gameRef: DocumentReference = gamesCollection.doc(gameId).ref;
 
           gameRef
@@ -110,11 +116,11 @@ export class ConfigService {
                               state: 'unactive',
                          });
                     } else {
-                         console.log('No such document!');
+                         console.log(AppMessagesConstants.NO_SUCH_DOCUMENT);
                     }
                })
                .catch(error => {
-                    console.log('Error getting document:', error);
+                    console.log(AppMessagesConstants.ERROR_GETTING_DOCUMENT, error);
                });
      }
 }
