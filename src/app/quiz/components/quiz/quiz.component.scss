@@ -1,7 +1,9 @@
 @import '../../../core/sass/breakpoints.scss';
-
+body {
+     overflow: hidden;
+}
 .score {
-     font-size: 4em;
+     font-size: 4.5em;
      text-align: center;
      padding: 0.5em;
 }

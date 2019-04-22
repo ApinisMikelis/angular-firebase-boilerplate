@@ -1,0 +1,17 @@
+<h2>Import</h2>
+<form [formGroup]="importForm">
+     <mat-form-field>
+          <ngx-mat-file-input [accept]="'.csv'" formControlName="file" placeholder="Upload a file"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder</mat-icon>
+     </mat-form-field>
+     <button [disabled]="!importForm.valid" mat-raised-button color="primary" (click)="import()">
+          Import questions
+     </button>
+</form>
+
+<div *ngIf="importResults.length > 0">
+     <p *ngFor="let question of importResults">{{ question.question }}</p>
+     <button mat-raised-button color="primary" (click)="saveImportedQuestions()">
+          Save imported questions
+     </button>
+</div>

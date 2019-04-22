@@ -26,7 +26,7 @@ interface Response {
 export class QuestionService {
      constructor(private http: HttpClient, private afs: AngularFirestore, private utilityService: UtilityService) {}
 
-     getDummy(): any {
+     public getDummy(): any {
           this.http.get('https://opentdb.com/api.php?amount=100&category=21&type=multiple').subscribe((x: Response) => {
                forEach(x.results, (result: DummyQuestion) => {
                     this.addQuestion({
@@ -41,14 +41,14 @@ export class QuestionService {
           });
      }
 
-     getQuestions(amount: number = 100): Observable<Question[]> {
+     public getQuestions(amount: number = 100): Observable<Question[]> {
           const collection: AngularFirestoreCollection<Question> = this.afs.collection('questions', ref => {
                return ref.limit(amount);
           });
           return collection.valueChanges();
      }
 
-     addQuestion(question: Question): Promise<DocumentReference> {
+     public addQuestion(question: Question): Promise<DocumentReference> {
           const collection: AngularFirestoreCollection = this.afs.collection('questions');
           return collection.add(question);
      }
