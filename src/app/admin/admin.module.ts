@@ -7,9 +7,10 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImportQuestionsComponent } from './components/import/import-questions.component';
 import { PapaParseModule } from 'ngx-papaparse';
+import { GameListComponent } from './components/game-list/game-list.component';
 
 @NgModule({
-     declarations: [DashboardPage, QuestionsComponent, ImportQuestionsComponent],
+     declarations: [DashboardPage, GameListComponent, QuestionsComponent, ImportQuestionsComponent],
      imports: [AdminRoutingModule, CommonModule, MaterialModule, PapaParseModule, ReactiveFormsModule],
 })
 export class AdminModule {}

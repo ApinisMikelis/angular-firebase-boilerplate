@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
      MatButtonModule,
+     MatChipsModule,
      MatFormFieldModule,
      MatInputModule,
      MatCardModule,
@@ -15,6 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 const modules = [
      MatCardModule,
+     MatChipsModule,
      MatDividerModule,
      MatButtonModule,
      MaterialFileInputModule,

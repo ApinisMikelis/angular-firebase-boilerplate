@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Result } from '../../models/result.model';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ResultsService } from '../../services/results.service';
+import { ConfigService } from 'src/app/core/services/config.service';
 
 @Component({
      selector: 'app-results-page',
@@ -18,6 +19,7 @@ export class ResultsPageComponent implements OnInit {
      constructor(
           private fb: FormBuilder,
           private rs: ResultsService,
+          private cs: ConfigService,
           private router: Router,
           private route: ActivatedRoute
      ) {
@@ -26,6 +28,7 @@ export class ResultsPageComponent implements OnInit {
           });
 
           this.result = {
+               gameRef: '',
                player: undefined,
                score: undefined,
                question_count: undefined,
@@ -33,6 +36,8 @@ export class ResultsPageComponent implements OnInit {
                wrong: undefined,
                timestamp: undefined,
           };
+
+          this.cs.getLifeTimeSettings().then(ref => (this.result.gameRef = ref));
      }
 
      ngOnInit(): void {
@@ -53,6 +58,7 @@ export class ResultsPageComponent implements OnInit {
 
      public submit(): void {
           this.result.player = this.nameForm.get('name').value;
+
           this.rs
                .submitScore(this.result)
                .then(x => {

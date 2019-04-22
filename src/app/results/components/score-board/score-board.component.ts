@@ -3,6 +3,7 @@ import { ResultsService } from '../../services/results.service';
 import { Result } from '../../models/result.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { ConfigService } from 'src/app/core/services/config.service';
 
 @Component({
      selector: 'app-score-board',
@@ -14,10 +15,13 @@ export class ScoreBoardComponent {
      resultList: Result[];
      displayedColumns: string[] = ['position', 'score', 'player', 'progress'];
 
-     constructor(private router: Router, private rs: ResultsService) {
-          this.results$ = this.rs.getResults(10);
-          this.results$.subscribe((results: Result[]) => {
-               this.resultList = results;
+     constructor(private router: Router, private rs: ResultsService, private cs: ConfigService) {
+          this.cs.getLifeTimeSettings().then(ref => {
+               this.results$ = this.rs.getResults(10, ref);
+
+               this.results$.subscribe((results: Result[]) => {
+                    this.resultList = results;
+               });
           });
      }
 
