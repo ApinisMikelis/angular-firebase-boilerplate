@@ -1,6 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Option } from '../../models/option.model';
 
+export interface OptionAnswerModel {
+     correct: boolean;
+     letter: string;
+}
+
 @Component({
      selector: 'app-option',
      templateUrl: './option.component.html',
@@ -9,12 +14,12 @@ import { Option } from '../../models/option.model';
 export class OptionComponent {
      @Input() option: Option;
      @Input() index: string;
-     @Output() answer = new EventEmitter<boolean>();
+     @Output() answer = new EventEmitter<OptionAnswerModel>();
      answered: boolean = false;
-     option_letters: string[] = ['a', 'b', 'c'];
+     optionLetters: string[] = ['a', 'b', 'c'];
 
-     submit(correct: boolean): void {
-          this.answer.emit(correct);
+     submit(correct: boolean, letter: string): void {
+          this.answer.emit({ correct: correct, letter: letter });
           this.answered = true;
      }
 }

@@ -4,7 +4,7 @@
      <div class="question" fxLayout="row" fxLayoutAlign="center center">
           <span>{{ question.question }}</span>
      </div>
-
+     <app-goal [hitGoal]="freezeGame" [optionLetter]="goal"></app-goal>
      <div class="answers" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="15" fxFlex="100%">
           <div class="option-disabler" *ngIf="freezeGame"></div>
           <app-option

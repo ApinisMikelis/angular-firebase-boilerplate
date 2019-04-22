@@ -2,7 +2,7 @@
      position: relative;
 
      img.goal {
-          width: 80%;
+          width: 50%;
      }
 
      img.puck {
@@ -12,6 +12,18 @@
           bottom: 0;
           z-index: 99999;
           animation: hitGoal 0.3s ease-in 0s;
+
+          &.a {
+               left: 33%;
+          }
+
+          &.b {
+               left: 45%;
+          }
+
+          &.c {
+               left: 60%;
+          }
      }
 }
 

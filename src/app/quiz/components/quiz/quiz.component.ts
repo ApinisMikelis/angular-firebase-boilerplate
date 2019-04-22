@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { answer, animeLength } from '../../../animations/quiz-animations';
 import { UtilityService } from '../../../core/services/utility.service';
 import { sampleSize } from 'lodash';
+import { OptionAnswerModel } from '../option/option.component';
 
 @Component({
      selector: 'app-quiz',
@@ -32,6 +33,7 @@ export class QuizComponent implements OnInit {
      optionIds: string[] = ['a', 'b', 'c', 'd'];
 
      freezeGame: boolean = false;
+     goal: string = '';
 
      answerState = 'unanswered';
 
@@ -62,9 +64,10 @@ export class QuizComponent implements OnInit {
                });
      }
 
-     public submit(answer: boolean): void {
+     public submit(answer: OptionAnswerModel): void {
           this.freezeGame = true;
-          answer === true ? this.registerCorrectAnswer() : this.registerWrongAnswer();
+          this.goal = answer.letter;
+          answer.correct === true ? this.registerCorrectAnswer() : this.registerWrongAnswer();
      }
 
      private playAnimation(): void {
