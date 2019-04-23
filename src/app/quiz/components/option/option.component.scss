@@ -1,6 +1,5 @@
 @import '../../../core/sass/breakpoints.scss';
 
-
 .option {
      button {
           width: 100%;
@@ -8,46 +7,31 @@
           font-size: 2em;
      }
 
-     &.correct {
+     &.correctOption {
           .answered {
                transition: box-shadow 0.3s ease-in;
                box-shadow: 0 0 4em 0 #00973e;
           }
      }
 
-     &.wrong {
+     &.wrongOption {
           .answered {
                transition: box-shadow 0.3s ease-in;
                box-shadow: 0 0 4em 0 #f03800;
           }
      }
-     padding: 1em;
-}
 
-.option_badge {
-     font-size: 5em;
-     font-weight: 500;
-     text-transform: uppercase;
-     color: #00973e;
+     padding: 1em;
 }
 
 // lt-lg
 @media (max-width: $bp-md-max) {
-
      .option {
           button {
                padding: 1em;
                font-size: 1em;
           }
-     
+
           padding: 0.5em;
      }
-     
-     .option_badge {
-          font-size: 5em;
-          font-weight: 500;
-          text-transform: uppercase;
-          color: #00973e;
-     }
-
 }

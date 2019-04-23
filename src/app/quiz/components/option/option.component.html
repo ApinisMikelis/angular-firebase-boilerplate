@@ -1,5 +1,4 @@
-<div [ngClass]="option.correct ? 'correct' : 'wrong'" class="option">
-     <span class="option_badge">{{ optionLetters[index] }}</span>
+<div [ngClass]="option.correct ? 'correctOption' : 'wrongOption'" class="option">
      <button
           [ngClass]="answered ? 'answered' : 'unanswered'"
           (click)="submit(option.correct, optionLetters[index])"

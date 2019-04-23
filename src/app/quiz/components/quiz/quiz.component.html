@@ -1,15 +1,23 @@
 <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
 <div *ngIf="questions" fxLayout="column" fxLayoutAlign="center space-between">
-     <div class="score">🏑 {{ score }}</div>
      <div class="question" fxLayout="row" fxLayoutAlign="center center">
           <span>{{ question.question }}</span>
      </div>
-     <app-goal [hitGoal]="freezeGame" [optionLetter]="goal"></app-goal>
-     <div class="answers" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="15" fxFlex="100%">
+
+     <div fxLayout="row">
+          <div fxFlex="25%" fxLayoutAlign="center center" class="question-count">
+               {{ questionProgress }}
+          </div>
+          <app-goal fxFlex="50%" [hitGoal]="freezeGame" [optionCorrect]="goalCorrect" [optionLetter]="goal"></app-goal>
+          <div fxFlex="25%" fxLayoutAlign="center center" class="score">🏑 {{ score }}</div>
+     </div>
+
+     <div class="answers {{ freezeGame ? 'highlight' : ''}}" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="15" fxFlex="100%">
           <div class="option-disabler" *ngIf="freezeGame"></div>
           <app-option
                fxFlex="33%"
                *ngFor="let option of question.options; let i = index"
+               class="{{ option.correct ? 'correct' : 'false' }}"
                (answer)="submit($event)"
                [option]="option"
                [index]="i"

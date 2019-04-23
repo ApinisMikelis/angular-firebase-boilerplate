@@ -2,7 +2,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 
 // TODO: MAKE AN INTERFACE FOR ANIMATION OBJECT TO COMBINE ANIME LENGTH AND STEPS
 
-export const animeLength: number = 2000;
+export const animeLength: number = 4000;
 export const answer = [
      trigger('answerState', [
           state(

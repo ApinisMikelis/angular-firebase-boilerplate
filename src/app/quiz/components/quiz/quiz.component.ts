@@ -34,6 +34,7 @@ export class QuizComponent implements OnInit {
 
      freezeGame: boolean = false;
      goal: string = '';
+     goalCorrect: boolean;
 
      answerState = 'unanswered';
 
@@ -49,6 +50,10 @@ export class QuizComponent implements OnInit {
 
      get progress(): number {
           return (this.active / this.questionCount) * 100;
+     }
+
+     get questionProgress(): string {
+          return this.active + '/' + this.questionCount;
      }
 
      ngOnInit(): void {
@@ -67,6 +72,7 @@ export class QuizComponent implements OnInit {
      public submit(answer: OptionAnswerModel): void {
           this.freezeGame = true;
           this.goal = answer.letter;
+          this.goalCorrect = answer.correct;
           answer.correct === true ? this.registerCorrectAnswer() : this.registerWrongAnswer();
      }
 

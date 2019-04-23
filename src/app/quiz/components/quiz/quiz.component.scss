@@ -1,6 +1,7 @@
 @import '../../../core/sass/breakpoints.scss';
 
-.score {
+.score,
+.question-count {
      font-size: 4.5em;
      text-align: center;
 }
@@ -22,6 +23,8 @@
      position: absolute;
      bottom: 0;
 
+     
+
      .option-disabler {
           opacity: 0;
           position: absolute;
@@ -35,7 +38,8 @@
 
 // lt-lg
 @media (max-width: $bp-md-max) {
-     .score {
+     .score,
+     .question-count {
           font-size: 2em;
      }
 

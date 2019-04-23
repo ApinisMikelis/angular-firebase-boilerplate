@@ -68,7 +68,23 @@ body {
           line-height: 1.5em;
           font-size: 1.3em;
           font-weight: 300;
+          margin: 0 0 0.5em 0;
      }
+}
+
+// This does not belong here
+.highlight .false button {
+     transform: scale(0.85);
+     transition: all 0.5s ease-in;
+     border-color: #f03800;
+     background: #f03800;
+}
+
+.highlight .correctOption button {
+     transform: scale(1.2);
+     transition: all 0.5s ease-in;
+     box-shadow: 0 0 4em 0 #00973e;
+     z-index: 99999;
 }
 
 // gt-sm
