@@ -14,6 +14,7 @@ export interface OptionAnswerModel {
 export class OptionComponent {
      @Input() option: Option;
      @Input() index: string;
+     @Input() longText: boolean;
      @Output() answer = new EventEmitter<OptionAnswerModel>();
      answered: boolean = false;
      optionLetters: string[] = ['a', 'b', 'c'];

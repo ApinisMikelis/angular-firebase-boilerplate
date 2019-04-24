@@ -7,6 +7,12 @@
           font-size: 2em;
      }
 
+     &.long-text {
+          button {
+               font-size: 1.5em;
+          }
+     }
+
      &.correctOption {
           .answered {
                transition: box-shadow 0.3s ease-in;

@@ -1,5 +1,15 @@
 @import './app/core/sass//breakpoints.scss';
 
+$digital-woff-font-path: './assets/fonts/digital.woff';
+$digital-woff2-font-path: './assets/fonts/digital.woff2';
+$digital-ttf-font-path: './assets/fonts/digital.ttf';
+
+@font-face {
+     font-family: 'Digital';
+     src: url($digital-woff-font-path) format('woff2'), url($digital-woff2-font-path) format('woff'),
+          url($digital-ttf-font-path) format('truetype');
+}
+
 body {
      margin: 0;
      font-family: Roboto, 'Helvetica Neue', sans-serif;

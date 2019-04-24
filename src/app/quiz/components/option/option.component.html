@@ -1,4 +1,7 @@
-<div [ngClass]="option.correct ? 'correctOption' : 'wrongOption'" class="option">
+<div
+     [ngClass]="option.correct ? 'correctOption' : 'wrongOption'"
+     class="option {{ longText ? 'long-text' : 'short-text' }}"
+>
      <button
           [ngClass]="answered ? 'answered' : 'unanswered'"
           (click)="submit(option.correct, optionLetters[index])"

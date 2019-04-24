@@ -2,16 +2,23 @@
 
 .score,
 .question-count {
-     font-size: 4.5em;
+     font-size: 7em;
+     font-family: 'Digital', 'Roboto';
+     color: #455556;
      text-align: center;
 }
 
 .question {
      height: 25vh;
      color: #455556;
+     padding: 0 3em;
 
      span {
           font-size: 4em;
+
+          &.long-text {
+               font-size: 3.5em;
+          }
      }
 }
 
@@ -22,8 +29,6 @@
      width: 100%;
      position: absolute;
      bottom: 0;
-
-     
 
      .option-disabler {
           opacity: 0;
@@ -40,7 +45,7 @@
 @media (max-width: $bp-md-max) {
      .score,
      .question-count {
-          font-size: 2em;
+          font-size: 4em;
      }
 
      .question {

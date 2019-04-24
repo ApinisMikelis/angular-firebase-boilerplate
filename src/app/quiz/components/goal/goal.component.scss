@@ -1,3 +1,5 @@
+@import '../../../core/sass/breakpoints.scss';
+
 .goal-container {
      position: relative;
 
@@ -147,5 +149,12 @@
      100% {
           bottom: 5%;
           transform: scale(1);
+     }
+}
+
+// lt-lg
+@media (max-width: $bp-md-max) {
+     .option {
+          font-size: 3em !important;
      }
 }
