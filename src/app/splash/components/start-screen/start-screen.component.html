@@ -1,13 +1,25 @@
-<div class="start" fxLayout="column" fxLayoutAlign="center center">
+<div class="start" fxLayout="column" fxLayoutAlign="space-around center">
      <div class="logo" fxLayout="row">
           <img src="../../assets/img/logo.svg" alt="logo" />
-          <h1>Bite Hokejs</h1>
+          <h1>IQ ŠĶĪLIENS</h1>
+     </div>
+
+     <div fxLayout="column" class="intro-text">
+          <p>
+               Vai zini, kurš hokejists Latvijas izlases rindās aizvadījis visvairāk spēļu? Kurš bija pirmais latvietis
+               NHL rindās un kuru valstu izlases līdz šim mums bijis nepārkožams “cietais rieksts”?
+          </p>
+
+          <p>
+               Pārbaudi, kādas ir Tavas hokeja <strong>#lielfana</strong> zināšanas, izvēlies savu atbildi un “šķil”
+               īstajos vārtos. Lai #kopāspēks enerģija ir ar Tevi!
+          </p>
      </div>
 
      <div fxLayout="row" fxLayoutGap="30px">
           <button (click)="start()" mat-flat-button color="primary">Sākt spēli</button>
-          <!-- <button (click)="scoreboard()" mat-flat-button color="primary">
+          <button (click)="scoreboard()" mat-flat-button color="primary">
                Apskatīt rezultātus
-          </button> -->
+          </button>
      </div>
 </div>
