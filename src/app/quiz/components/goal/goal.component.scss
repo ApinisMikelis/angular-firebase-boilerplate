@@ -165,4 +165,47 @@ $c: 70px;
      .option {
           font-size: 3em !important;
      }
+
+     .goal-container {
+          width: 460px;
+
+          img.goal {
+               max-height: 45vh;
+          }
+
+          .option {
+               top: 130px;
+               width: 60px;
+               height: 60px;
+
+               &.a {
+                    left: 60px;
+               }
+
+               &.b {
+                    left: 195px;
+               }
+
+               &.c {
+                    right: 60px;
+               }
+          }
+
+          img.puck {
+               width: 7%;
+               bottom: 5%;
+
+               &.a {
+                    left: 60px + 25;
+               }
+
+               &.b {
+                    left: 195px + 25;
+               }
+
+               &.c {
+                    right: 60px + 25;
+               }
+          }
+     }
 }

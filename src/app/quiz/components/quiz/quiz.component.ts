@@ -4,36 +4,39 @@ import { take, map } from 'rxjs/operators';
 import { Question } from '../../models/question.model';
 import { QuestionAnswer } from '../../models/question-answer.model';
 import { Router } from '@angular/router';
-import { answer, animeLength } from '../../../animations/quiz-animations';
+
 import { UtilityService } from '../../../core/services/utility.service';
-import { sampleSize, map as lMap, forEach } from 'lodash';
+import { sampleSize, forEach } from 'lodash';
 import { OptionAnswerModel } from '../option/option.component';
+import { fader } from 'src/app/animations/route-animations';
 
 @Component({
      selector: 'app-quiz',
      templateUrl: './quiz.component.html',
      styleUrls: ['./quiz.component.scss'],
-     animations: [answer],
+
+     animations: [fader],
 })
 export class QuizComponent implements OnInit {
-     ready: boolean = false;
+     animeLength = 4000;
+     ready = false;
      questions: Question[];
      answers: QuestionAnswer[];
-     active: number = 0;
+     active = 0;
 
-     questionCount: number = 10;
+     questionCount = 10;
 
-     correct: number = 0;
-     wrong: number = 0;
+     correct = 0;
+     wrong = 0;
 
-     score: number = 0;
-     points: number = 10;
-     fine: number = 1;
+     score = 0;
+     points = 10;
+     fine = 1;
 
      optionIds: string[] = ['a', 'b', 'c', 'd'];
 
-     freezeGame: boolean = false;
-     goal: string = '';
+     freezeGame = false;
+     goal = '';
      goalCorrect: boolean;
 
      answerState = 'unanswered';
@@ -43,6 +46,10 @@ export class QuizComponent implements OnInit {
           private utilityService: UtilityService,
           private questionService: QuestionService
      ) {}
+
+     get quizReady(): boolean {
+          return this.questions ? true : false;
+     }
 
      get question(): Question {
           return this.questions[this.active];
@@ -86,7 +93,7 @@ export class QuizComponent implements OnInit {
 
           setTimeout(() => {
                this.next();
-          }, animeLength);
+          }, this.animeLength);
      }
 
      private registerCorrectAnswer(): void {

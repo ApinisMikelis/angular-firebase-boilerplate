@@ -70,7 +70,8 @@ tr.mat-row {
 // lt-lg
 @media (max-width: $bp-md-max) {
      h1 {
-          margin: 0.5em 0;
-          font-size: 2em;
+          margin: 0;
+          font-size: 3em;
+          line-height: 3em;
      }
 }

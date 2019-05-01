@@ -22,13 +22,16 @@
      }
 }
 
+.goal {
+     min-height: 50vh;
+}
+
 .answers {
      margin: 0;
      padding: 0;
      border: none;
      width: 100%;
-     position: absolute;
-     bottom: 0;
+     max-height: 10vh;
 
      .option-disabler {
           opacity: 0;
@@ -41,6 +44,28 @@
      }
 }
 
+.animateEntrance {
+     &.fadeIn {
+          animation: fadeIn 1s ease-in-out 0s;
+     }
+
+     .answers {
+          animation: fadeIn 1s ease-in-out 0s;
+     }
+}
+
+@keyframes fadeIn {
+     0% {
+          opacity: 0;
+          transform: scale(0.9);
+     }
+
+     100% {
+          opacity: 1;
+          transform: scale(1);
+     }
+}
+
 // lt-lg
 @media (max-width: $bp-md-max) {
      .score,
@@ -49,7 +74,7 @@
      }
 
      .question {
-          height: 30vh;
+          height: 15vh;
           padding: 0 2em;
 
           span {
@@ -59,5 +84,9 @@
                     font-size: 1.5em;
                }
           }
+     }
+
+     .goal {
+          min-height: unset;
      }
 }

@@ -1,10 +1,16 @@
 <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
-<div *ngIf="questions" fxLayout="column" fxLayoutAlign="center space-between">
+<div
+     *ngIf="questions"
+     class="animateEntrance {{ quizReady ? 'fadeIn' : '' }}"
+     fxFlexFill
+     gdAlignColumns="space-evenly center"
+     fxLayout="column"
+>
      <div class="question" fxLayout="row" fxLayoutAlign="center center">
           <span class="{{ question.question.length > 130 ? 'long-text' : 'short-text' }}">{{ question.question }}</span>
      </div>
 
-     <div fxLayout="row">
+     <div class="goal" fxLayout="row">
           <div fxFlex="25%" fxLayoutAlign="center center" class="question-count">
                {{ questionProgress }}
           </div>
@@ -15,6 +21,7 @@
      <div
           class="answers {{ freezeGame ? 'highlight' : '' }}"
           fxLayout="column"
+          fxLayoutAlign="flex-end center"
           fxLayout.gt-sm="row"
           fxLayoutGap="15"
           fxFlex="100%"
