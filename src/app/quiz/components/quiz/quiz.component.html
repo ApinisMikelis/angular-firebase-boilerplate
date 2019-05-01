@@ -10,30 +10,31 @@
           <span class="{{ question.question.length > 130 ? 'long-text' : 'short-text' }}">{{ question.question }}</span>
      </div>
 
-     <div class="goal" fxLayout="row">
-          <div fxFlex="25%" fxLayoutAlign="center center" class="question-count">
+     <div class="goal" fxLayout="column" fxLayout.gt-md="row">
+          <div fxHide.lt-md fxFlex="25%" fxLayoutAlign="center center" class="question-count">
                {{ questionProgress }}
           </div>
           <app-goal fxFlex="50%" [hitGoal]="freezeGame" [optionCorrect]="goalCorrect" [optionLetter]="goal"></app-goal>
-          <div fxFlex="25%" fxLayout="column" fxLayoutAlign="center center" class="score">{{ score }}</div>
+          <div fxFlex="25%" fxLayout="column" fxLayoutAlign="center center" class="score">
+               {{ score }}
+          </div>
      </div>
 
      <div
           class="answers {{ freezeGame ? 'highlight' : '' }}"
           fxLayout="column"
-          fxLayoutAlign="flex-end center"
           fxLayout.gt-sm="row"
           fxLayoutGap="15"
-          fxFlex="100%"
+          fxFlex
      >
           <div class="option-disabler" *ngIf="freezeGame"></div>
           <app-option
-               fxFlex="33%"
+               fxFlex
                *ngFor="let option of question.options; let i = index"
                class="{{ option.correct ? 'correct' : 'false' }}"
                (answer)="submit($event)"
                [option]="option"
-               [longText]="option.text.length > 30"
+               [longText]="option.text.length > 20"
                [index]="i"
           ></app-option>
      </div>

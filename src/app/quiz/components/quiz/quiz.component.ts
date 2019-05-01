@@ -60,7 +60,7 @@ export class QuizComponent implements OnInit {
      }
 
      get questionProgress(): string {
-          return this.active + ' / ' + this.questionCount;
+          return this.active + 1 + ' / ' + this.questionCount;
      }
 
      ngOnInit(): void {

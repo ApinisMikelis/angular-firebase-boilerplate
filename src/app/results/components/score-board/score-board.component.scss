@@ -2,10 +2,12 @@
 
 .logo-heading {
      padding: 1em;
+     max-height: 15vh !important;
 }
 
 h1 {
      margin: 0.2em 0;
+     line-height: 1.5em;
 }
 
 .mat-cell {
@@ -35,10 +37,9 @@ h1 {
 }
 
 .mat-column-score {
-     font-size: 1.5em;
-     font-weight: 300;
+     font-size: 2em;
+     font-family: 'Digital';
      text-align: left;
-     text-transform: uppercase;
      width: 10%;
 }
 
@@ -70,8 +71,18 @@ tr.mat-row {
 // lt-lg
 @media (max-width: $bp-md-max) {
      h1 {
-          margin: 0;
           font-size: 3em;
-          line-height: 3em;
+     }
+}
+
+// lt-md
+@media (max-width: $bp-sm-max) {
+     h1 {
+          font-size: 2em;
+          line-height: 2em;
+     }
+
+     .logo-heading {
+          max-height: 10vh !important;
      }
 }

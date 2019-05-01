@@ -1,5 +1,5 @@
-<div class="start" fxLayout="column" fxLayoutAlign="space-around center">
-     <div class="logo" fxLayout="row">
+<div class="start" fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+     <div fxLayout="row" class="logo">
           <img src="../../assets/img/logo.svg" alt="logo" />
           <h1>IQ ŠĶĪLIENS</h1>
      </div>
@@ -14,12 +14,12 @@
                Pārbaudi, kādas ir Tavas hokeja <strong>#lielfana</strong> zināšanas, izvēlies savu atbildi un “šķil”
                īstajos vārtos. Lai #kopāspēks enerģija ir ar Tevi!
           </p>
-     </div>
 
-     <div fxLayout="row" fxLayoutGap="30px">
-          <button (click)="start()" mat-flat-button color="primary">Sākt spēli</button>
-          <button (click)="scoreboard()" mat-flat-button color="primary">
-               Apskatīt rezultātus
-          </button>
+          <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center" class="actions">
+               <button (click)="start()" mat-flat-button color="primary">Sākt spēli</button>
+               <button (click)="scoreboard()" mat-flat-button color="primary">
+                    Apskatīt rezultātus
+               </button>
+          </div>
      </div>
 </div>

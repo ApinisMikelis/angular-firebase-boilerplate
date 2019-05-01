@@ -1,4 +1,5 @@
-@import './app/core/sass//breakpoints.scss';
+@import './app/core/sass/breakpoints.scss';
+@import './app/core/sass/colors.scss';
 
 $digital-woff-font-path: './assets/fonts/digital.woff';
 $digital-woff2-font-path: './assets/fonts/digital.woff2';
@@ -18,12 +19,14 @@ body {
 }
 
 .app-container {
-     width: 90vw;
-     height: 90vh;
-     margin: 5vh auto;
+     width: 94vw;
+     height: 94vh;
+     margin: 3vh auto;
      text-align: center;
      position: relative;
      background: rgba(255, 255, 255, 0.6);
+     border-radius: 10px;
+     overflow: hidden;
 
      button {
           font-size: 2em;
@@ -31,7 +34,7 @@ body {
           border-bottom-left-radius: 0;
           border-bottom-width: 7px;
           border-bottom-style: solid;
-          border-bottom-color: #027c34;
+          border-bottom-color: $dark-green;
 
           &.mat-flat-button.mat-primary {
                color: #f1f8e9;
@@ -86,14 +89,14 @@ body {
 .highlight .false button {
      transform: scale(0.85);
      transition: all 0.5s ease-in;
-     border-color: #f03800;
-     background: #f03800;
+     border-color: $red;
+     background: $red;
 }
 
 .highlight .correctOption button {
      transform: scale(1.2);
      transition: all 0.5s ease-in;
-     box-shadow: 0 0 4em 0 #00973e;
+     box-shadow: 0 0 4em 0 $green;
      z-index: 99999;
 }
 
@@ -116,6 +119,10 @@ body {
 
           h1 {
                font-size: 4em;
+          }
+
+          p {
+               font-size: 1.5em;
           }
 
           .mat-elevation-z8 {

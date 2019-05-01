@@ -1,4 +1,5 @@
 @import '../../../core/sass/breakpoints.scss';
+@import '../../../core/sass/colors.scss';
 
 $a: 70px;
 $b: 280px;
@@ -50,13 +51,13 @@ $c: 70px;
           border-radius: 1em;
 
           &.correct {
-               background: #00973e;
+               background: $green;
                color: #fff;
                animation: correct 1s ease-out 0s;
           }
 
           &.wrong {
-               background: #f03800;
+               background: $red;
                color: #fff;
                animation: wrong 1s ease-out 0s;
           }
@@ -93,7 +94,7 @@ $c: 70px;
      }
 
      100% {
-          background: #00973e;
+          background: $green;
           transform: scale(1);
      }
 }
@@ -116,7 +117,7 @@ $c: 70px;
      }
 
      100% {
-          background: #f03800;
+          background: $red;
           transform: scale(1);
      }
 }
@@ -206,6 +207,50 @@ $c: 70px;
                &.c {
                     right: 60px + 25;
                }
+          }
+     }
+}
+
+// lt-md
+@media (max-width: $bp-sm-max) {
+     width: 380px;
+
+     img.goal {
+          max-height: 30vh;
+     }
+
+     .option {
+          top: 130px;
+          width: 60px;
+          height: 60px;
+
+          &.a {
+               left: 40px;
+          }
+
+          &.b {
+               left: 160px;
+          }
+
+          &.c {
+               right: 40px;
+          }
+     }
+
+     img.puck {
+          width: 7%;
+          bottom: 5%;
+
+          &.a {
+               left: 40px + 25;
+          }
+
+          &.b {
+               left: 160px + 25;
+          }
+
+          &.c {
+               right: 40px + 25;
           }
      }
 }

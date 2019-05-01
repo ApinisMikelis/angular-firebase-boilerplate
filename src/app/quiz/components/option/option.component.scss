@@ -1,4 +1,5 @@
 @import '../../../core/sass/breakpoints.scss';
+@import '../../../core/sass/colors.scss';
 
 .option {
      button {
@@ -10,15 +11,23 @@
      &.correctOption {
           .answered {
                transition: box-shadow 0.3s ease-in;
-               box-shadow: 0 0 4em 0 #00973e;
+               box-shadow: 0 0 4em 0 $green;
           }
      }
 
      &.wrongOption {
           .answered {
                transition: box-shadow 0.3s ease-in;
-               box-shadow: 0 0 4em 0 #f03800;
+               box-shadow: 0 0 4em 0 $red;
           }
+     }
+
+     &.short-text {
+          font-size: 1.5em;
+     }
+
+     &.long-text {
+          font-size: 1em;
      }
 
      padding: 1em;
