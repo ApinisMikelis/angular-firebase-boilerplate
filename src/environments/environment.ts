@@ -5,12 +5,12 @@
 export const environment = {
      production: false,
      firebase: {
-          apiKey: 'APIKEY',
-          authDomain: 'AUTHDOMAIN',
-          databaseURL: 'DATABASE_URL',
-          projectId: 'PROJECT_ID',
-          storageBucket: 'STORAGE_BUCKET',
-          messagingSenderId: 'MESSAGING_SENDER_ID',
+          apiKey: 'AIzaSyBHAWUtmKAjSO0HjS7-YexdLFYf-YrReII',
+          authDomain: 'angels-b651d.firebaseapp.com',
+          databaseURL: 'https://angels-b651d.firebaseio.com',
+          projectId: 'angels-b651d',
+          storageBucket: 'angels-b651d.appspot.com',
+          messagingSenderId: '317665231047',
      },
 };
 
