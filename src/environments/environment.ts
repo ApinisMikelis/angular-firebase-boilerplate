@@ -5,12 +5,12 @@
 export const environment = {
      production: false,
      firebase: {
-          apiKey: 'AIzaSyB2nyG8muuxWrYIKqpZp1IAzzHMRgq8uvg',
-          authDomain: 'bite-hokejs.firebaseapp.com',
-          databaseURL: 'https://bite-hokejs.firebaseio.com',
-          projectId: 'bite-hokejs',
-          storageBucket: 'bite-hokejs.appspot.com',
-          messagingSenderId: '142591475657',
+          apiKey: 'APIKEY',
+          authDomain: 'AUTHDOMAIN',
+          databaseURL: 'DATABASE_URL',
+          projectId: 'PROJECT_ID',
+          storageBucket: 'STORAGE_BUCKET',
+          messagingSenderId: 'MESSAGING_SENDER_ID',
      },
 };
 
