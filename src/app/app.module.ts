@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { InputModule } from './input/input.module';
+import { DisplayModule } from './display/display.module';
 
 @NgModule({
      declarations: [AppComponent],
@@ -26,6 +28,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
           MaterialModule,
           BrowserAnimationsModule,
           HttpClientModule,
+          InputModule,
+          DisplayModule,
      ],
      providers: [],
      bootstrap: [AppComponent],
