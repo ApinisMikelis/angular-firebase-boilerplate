@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule, CoreModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
           AngularFireAuthModule,
           BrowserModule,
           BrowserAnimationsModule,
+          CoreModule,
           AppRoutingModule,
           AngularFirestoreModule,
           AngularFireModule.initializeApp(environment.firebase),
