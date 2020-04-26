@@ -10,6 +10,7 @@ import {
      MatTableModule,
      MatIconModule,
      MatDividerModule,
+     MatSnackBarModule,
 } from '@angular/material';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -19,6 +20,7 @@ const modules = [
      MatChipsModule,
      MatDividerModule,
      MatButtonModule,
+     MatSnackBarModule,
      MaterialFileInputModule,
      MatFormFieldModule,
      MatInputModule,
